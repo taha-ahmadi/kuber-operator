@@ -1,0 +1,8 @@
+apiVersion: gp.example.com/v1
+kind: KONginx
+metadata:
+  name: konginx-sample
+spec:
+  port: 80
+  replicaCount: 1
+

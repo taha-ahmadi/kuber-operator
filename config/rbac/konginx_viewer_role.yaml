@@ -1,0 +1,27 @@
+# permissions for end users to view konginxes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: konginx-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: kuber-operator
+    app.kubernetes.io/part-of: kuber-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: konginx-viewer-role
+rules:
+- apiGroups:
+  - gp.example.com
+  resources:
+  - konginxes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - gp.example.com
+  resources:
+  - konginxes/status
+  verbs:
+  - get

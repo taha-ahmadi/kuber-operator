@@ -1,0 +1,31 @@
+# permissions for end users to edit konginxes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: konginx-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: kuber-operator
+    app.kubernetes.io/part-of: kuber-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: konginx-editor-role
+rules:
+- apiGroups:
+  - gp.example.com
+  resources:
+  - konginxes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - gp.example.com
+  resources:
+  - konginxes/status
+  verbs:
+  - get
